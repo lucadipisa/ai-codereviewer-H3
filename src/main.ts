@@ -10,9 +10,12 @@ const OPENAI_API_KEY: string = core.getInput("OPENAI_API_KEY");
 const OPENAI_API_MODEL: string = core.getInput("OPENAI_API_MODEL");
 
 const octokit = new Octokit({ auth: GITHUB_TOKEN });
+const octokit = new Octokit({ auth: GITHUB_TOKEN });
 
 const openai = new OpenAI({
-  apiKey: OPENAI_API_KEY,
+  apiKey: OPENAI_API_KEY,const openai = new OpenAI({
+    apiKey: OPENAI_API_KEY,
+  
 });
 
 interface PRDetails {
@@ -23,7 +26,7 @@ interface PRDetails {
   description: string;
 }
 
-async function getPRDetails(): Promise<PRDetails> {
+  async function getPRDetails(): Promise<PRDetails> {
   const { repository, number } = JSON.parse(
     readFileSync(process.env.GITHUB_EVENT_PATH || "", "utf8")
   );
